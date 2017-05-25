@@ -43,10 +43,22 @@
 			</div>
 			<!-- end List -->
 			<!-- form -->
-			<div  v-elseif="activedView == 1">
+			<div  v-if="activedView == 1">
 				<form action="" name="form">
-					Test: <input type="text" v-model="test">
-					{{ test }}
+					<label >Vencimento:</label>
+					<input type="text" v-model="bill.date_due"/>
+					<br><br>
+					<label for="">Nome:</label>
+					<select v-model="bill.name">
+						<option v-for="n in names" v-bind:value="n">
+							{{ n }}
+						</option>
+					</select>
+					<br><br>
+					<label for="">Valor</label>
+					<input type="text" v-model="bill.value"/>
+					<br><br>
+					<input type="button" v-on:click="submit" value="Enviar" />
 				</form>
 			</div>
 			<!-- end form -->
