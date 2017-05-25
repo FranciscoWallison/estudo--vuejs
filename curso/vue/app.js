@@ -37,4 +37,8 @@ var app = new Vue({
 		}
 	}
 	
-})
+});
+
+app.$watch('test', function(novoValor, velhoValor){
+	console.log('Velho valor: '+ velhoValor + ' novo valor: '+ novoValor);
+});
