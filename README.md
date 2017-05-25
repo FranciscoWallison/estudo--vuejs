@@ -1,13 +1,21 @@
-Ferramentas
+##Ferramentas
 ```
-lite-server
-Browser-sync
+	lite-server
+	Browser-sync
+```
 
-```
-Visualiza
+#### Visualiza
 vim index.html 
 
-Cria
+#### Cria
 touch bs-config.json
+```
+	[ESC] :wq
+```
 
-ao auterar [ESC] :wq
+```
+npm init
+npm install vue@^2.3.3 --save
+
+ERR! Windows = npm install vue --save --no-bin-links
+```
