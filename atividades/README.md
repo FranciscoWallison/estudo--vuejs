@@ -20,3 +20,32 @@ print->  vue.js
 
 print->2
 ```
+
+
+####Entendendo data-binding da vue.js
+Class
+```
+	el: "#app",
+```
+
+Atributos
+```
+	data: { ... }
+```
+
+Metodos
+```
+	computed: { ... }
+	methods: { ... }
+```
+Verificando valores do objeto
+```
+console.log(app);
+console.log(app.title);
+console.log(app.bills);
+console.log(app.showView(1));
+console.log(app.status);
+
+//errado
+app.idade = 18;
+```
