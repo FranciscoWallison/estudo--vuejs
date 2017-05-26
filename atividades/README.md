@@ -49,3 +49,7 @@ console.log(app.status);
 //errado
 app.idade = 18;
 ```
+Trabanhando com filtros 
+```
+https://github.com/freearhey/vue2-filters
+```
