@@ -3,6 +3,17 @@
     <head>
      <meta charset="UTR-8">
      <title>Conde Contas</title>
+     <style type="text/css">
+     	.pago{
+     		background-color: green;
+     	}
+     	.nao-pago{
+     		background-color: red;
+     	}
+     	.minha-classe{
+			color: white;
+     	}
+     </style>
     </head>
     <body >
     	<div id="app">
@@ -37,7 +48,9 @@
 	  						<td>{{ o.date_due }}</td>
 	  						<td>{{ o.name }}</td>
 	  						<td>{{ o.value | currency('R$ ',2) }}</td>
-	  						<td>{{ o.done | doneLabel }}</td>
+	  						<td class="minha-classe" :class="{'pago': o.done, 'nao-pago': !o.done}">
+	  							{{ o.done | doneLabel }}
+	  						</td>
 	  						<td>
 	  							<a href="#" @click.prevent="loadBill(o)">Editar</a>
 	  						</td>
@@ -54,7 +67,7 @@
 					<br><br>
 					<label for="">Nome:</label>
 					<select v-model="bill.name">
-						<option v-for="n in names" v-bind:value="n">
+						<option v-for="n in names" :value="n">
 							{{ n }}
 						</option>
 					</select>
