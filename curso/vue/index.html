@@ -14,7 +14,7 @@
 			<nav>
 				<ul>
 					<li v-for="m in menus">
-						<a href="javascript:void(0)" v-on:click="showView(m.id)">{{ m.name }}</a>
+						<a href="#" @click.prevent="showView(m.id)">{{ m.name }}</a>
 					</li>
 				</ul>
 			</nav>
@@ -44,7 +44,7 @@
 			<!-- end List -->
 			<!-- form -->
 			<div  v-if="activedView == 1">
-				<form action="" name="form">
+				<form action="" name="form" @submit.prevent="submit">
 					<label >Vencimento:</label>
 					<input type="text" v-model="bill.date_due"/>
 					<br><br>
@@ -58,7 +58,7 @@
 					<label for="">Valor</label>
 					<input type="text" v-model="bill.value"/>
 					<br><br>
-					<input type="button" v-on:click="submit" value="Enviar" />
+					<input type="button" @click="submit" value="Enviar" />
 				</form>
 			</div>
 			<!-- end form -->
