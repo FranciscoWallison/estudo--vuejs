@@ -13,6 +13,15 @@
      	.minha-classe{
 			color: white;
      	}
+     	.red{
+     		color:red;
+     	}
+     	.green{
+     		color:green;
+     	}
+     	.gray{
+     		color: gray;
+     	}
      </style>
     </head>
     <body >
@@ -20,7 +29,9 @@
 
   			{{ title }}
 			
-			<h3>{{ status }}</h3>
+			<h3 :class="{'gray': status === false, 'green': status === 0, 'red': status > 0}">
+				{{ status | statusGeneral }}
+			</h3>
 
 			<nav>
 				<ul>
@@ -53,6 +64,7 @@
 	  						</td>
 	  						<td>
 	  							<a href="#" @click.prevent="loadBill(o)">Editar</a>
+	  							<a href="#" @click.prevent="deleteBill(index)">Exluir</a>
 	  						</td>
 	  					</tr>
 	  				</tbody>
@@ -73,7 +85,10 @@
 					</select>
 					<br><br>
 					<label for="">Valor</label>
-					<input type="text" v-model="bill.value"/>
+						<input type="text" v-model="bill.value"/>
+					<br><br>
+					<label for="">Pago?</label>
+						<input type="checkbox" v-model="bill.done"/>
 					<br><br>
 					<input type="button" @click="submit" value="Enviar" />
 				</form>
