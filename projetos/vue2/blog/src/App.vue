@@ -14,19 +14,16 @@ export default {
   data(){
     return {
       titulo: 'Test',
-      fotos: [
-        {
-          url: 'https://meusanimais.com.br/wp-content/uploads/2015/03/4-gato-enfermo.jpg',
-          titulo: 'gato-fofo'
-        },
-        {
-          url: 'https://meusanimais.com.br/wp-content/uploads/2015/03/4-gato-enfermo.jpg',
-          titulo: 'gato-fofo'
-        }
-      ]
+      fotos: []
     }
+  },
+  created(){
+    this.$http.get('http://localhost:3000/v1/fotos')
+      .then(res => res.json())
+      .then(fotos => this.fotos = fotos, err => console.log(err, 'aqui'));
   }
 }
+
 </script>
 
 <style lang="scss">
