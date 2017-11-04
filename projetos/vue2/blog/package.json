@@ -9,6 +9,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "materialize-css": "^0.100.2",
     "vue": "^2.4.4",
     "vue-resource": "^1.0.3"
   },
