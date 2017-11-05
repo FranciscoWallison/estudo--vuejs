@@ -1,11 +1,25 @@
 <template>
   <div class="corpo">
-		<router-view></router-view>
+		<my-menu :routes="routes" ></my-menu>
+		<transition name="pagina">
+			<router-view></router-view>
+		</transition>
   </div>
 </template>
 
 <script>
+import { routes } from './routes';
+import Menu from './components/shared/menu/Menu.vue'
+
 export default {
+	components: {
+		'my-menu': Menu
+	},
+	data () {
+		return {
+			routes
+		}
+	}
 }
 
 </script>
@@ -16,4 +30,5 @@ export default {
 		margin: 0 auto;
 		width: 96%;
 	}
+
 </style>
