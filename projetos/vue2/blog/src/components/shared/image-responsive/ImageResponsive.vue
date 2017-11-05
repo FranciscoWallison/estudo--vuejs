@@ -1,16 +1,16 @@
 <template>
-  <img class="imagem-responsiva" :src="url" :alt="titulo">
+  <img class="image-responsive" :src="url" :alt="title">
 </template>
 <script>
 export default {
   props: [
     'url',
-    'titulo'
+    'title'
   ]
 }
 </script>
 <style scoped>
-  .imagem-responsiva {
+  .image-responsive {
     width: 100%;
   }
 </style>

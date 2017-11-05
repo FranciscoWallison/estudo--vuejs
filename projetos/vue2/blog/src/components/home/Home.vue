@@ -7,9 +7,10 @@
 
   <ul class="lista-fotos">
     <li v-for="foto in fotosComFiltro" class="lista-fotos-item">
-      <meu-painel :titulo="foto.titulo">
-				<imagem-responsiva :url="foto.url" :titulo="foto.titulo"/>
-      </meu-painel>
+      <my-panel :title="foto.titulo">
+				<image-responsive :url="foto.url" :titulo="foto.titulo"/>
+        <my-button type="button" label="Remover" @buttonActivate="remove(foto)"></my-button>
+      </my-panel>
     </li>
   </ul>
 
@@ -18,15 +19,18 @@
 
 <script>
 
-// importando nosso Painel 
-import Painel from '../shared/painel/Painel.vue';
-import ImagemResponsiva from '../shared/imagem-responsiva/ImagemResponsiva.vue';
+// importações 
+import Panel from '../shared/panel/Panel.vue';
+import ImageResponsive from '../shared/image-responsive/ImageResponsive.vue';
+import Button from '../shared/button/Button.vue';
+
 
 export default {
    components: {
 
-    'meu-painel': Painel,
-		'imagem-responsiva': ImagemResponsiva,
+    'my-panel': Panel,
+    'image-responsive': ImageResponsive,
+    'my-button': Button,
   },
   data(){
     return {
@@ -49,6 +53,12 @@ export default {
 			  return this.fotos
 		  }
 	  }
+  },
+  methods: {
+    remove(foto){
+      alert('removendo a foto ' + foto.titulo);
+
+    }
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-    <h2 class="centralizado">Cadastro</h2>
+    <h2 class="centralized">Cadastro</h2>
 </template>
 <script>
 export default {
@@ -8,7 +8,7 @@ export default {
 </script>
 
 <style scoped>
-.centralizado{
+.centralized{
     text-align: center;
 }
 </style>
