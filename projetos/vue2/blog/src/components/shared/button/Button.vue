@@ -1,14 +1,22 @@
 <template>
-  <button class="button" :class="styleButton" :type="type" @click="shootAction()">{{ label }}</button>
+  <button class="button" :class="eventButton" :type="type" @click="shootAction()">{{ label }}</button>
 </template>
 <script>
 export default {
-  props: [
-      'type', 
-      'label',
-      'confirmation',
-      'eventButton'
-    ],
+    props: {
+       type: {
+           type: String, 
+           required: true
+       },
+
+       label: {
+           type: String, 
+           required: true
+       },
+
+       confirmation: Boolean,
+       styleButton: String
+   },
     methods: {       
         shootAction() {
             if(this.confirmation){
@@ -21,9 +29,9 @@ export default {
         }
     },
     computed: {
-        styleButton(){
-            if (this.eventButton == 'pattern' || !this.eventButton ) return 'button-pattern'
-            if (this.eventButton == 'alert') return 'button-alert'
+        eventButton(){
+            if (this.styleButton == 'pattern' || !this.styleButton ) return 'button-pattern'
+            if (this.styleButton == 'alert') return 'button-alert'
         }
     }
 }

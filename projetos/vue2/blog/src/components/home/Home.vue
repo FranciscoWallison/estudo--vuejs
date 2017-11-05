@@ -14,7 +14,7 @@
           label="Remover" 
           @buttonActivate="remove(foto)"
           :confirmation="true"
-          eventButton="alert"
+          styleButton="alert"
           />
       </my-panel>
     </li>
