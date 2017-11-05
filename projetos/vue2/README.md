@@ -4,7 +4,7 @@
 
 ## Build Setup
 
-``` bash
+> # bash
 # install dependencies
 
 npm install vue-cli@2.7.0 -g
@@ -14,16 +14,28 @@ vue init webpack-simple blog
 
 # O módulo VueResource
 npm install vue-resource@1.0.3 --save
+```
+    O vue-resource é um plugin do Vue.js para 
+    fazer requisições web e 
+    gerenciar respostas usando 
+    XMLHttpRequest ou JSONP
+```
 
 # O módulo VueRouter
 npm install vue-router@2.1.1 --save
+```
+    Um componente essencial de uma SPA é o 
+    Router que é responsável por mostrar/esconder um ou 
+    mais elementos dependendo da URL que se acessa no browser.
+```
+
 
 # serve with hot reload at localhost:8080
 npm run dev
 
 # build for production with minification
 npm run build
-```
+
 # Anotações 
 ```
     Babel é um tranpiler
