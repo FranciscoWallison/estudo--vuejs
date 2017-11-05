@@ -1,19 +1,31 @@
 <template>
-  <button class="button button-alert" :type="type" @click="shootAction()">{{ label }}</button>
+  <button class="button" :class="styleButton" :type="type" @click="shootAction()">{{ label }}</button>
 </template>
 <script>
 export default {
   props: [
       'type', 
-      'label'
+      'label',
+      'confirmation',
+      'eventButton'
     ],
-   methods: {       
-    shootAction() {
-        if(confirm('Confirma operacao?')) {
+    methods: {       
+        shootAction() {
+            if(this.confirmation){
+                if(confirm('Confirma operacao?')) {
+                    this.$emit('buttonActivate');
+                }
+                return;
+            }
             this.$emit('buttonActivate');
         }
+    },
+    computed: {
+        styleButton(){
+            if (this.eventButton == 'pattern' || !this.eventButton ) return 'button-pattern'
+            if (this.eventButton == 'alert') return 'button-alert'
+        }
     }
-   }
 }
 </script>
 <style scoped>
