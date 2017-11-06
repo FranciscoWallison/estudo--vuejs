@@ -29,7 +29,6 @@ npm install vue-router@2.1.1 --save
     mais elementos dependendo da URL que se acessa no browser.
 ```
 
-
 # serve with hot reload at localhost:8080
 npm run dev
 
@@ -48,4 +47,6 @@ npm run build
 ``` 
  Um exemplo de hook é a função created
 ```
-
+```
+    Diretivas permitem isolar um código que pode ser aplicado em mais de um componente.
+```

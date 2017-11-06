@@ -8,7 +8,7 @@
   <ul class="lista-fotos">
     <li v-for="foto in fotosComFiltro" class="lista-fotos-item">
       <my-panel :title="foto.titulo">
-				<image-responsive :url="foto.url" :titulo="foto.titulo"/>
+				<image-responsive v-my-transform :url="foto.url" :titulo="foto.titulo"/>
         <my-button 
           type="button" 
           label="Remover" 
