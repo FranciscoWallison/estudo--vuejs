@@ -43,6 +43,19 @@ npm run build
     Imterpolação é um associação unidirecional
         {{ msg }} 
 ```
+# Diretivas
+```
+A respeito do trecho de código acima, temos as seguintes afirmações:
+
+A) É através de binding.value que temos acesso ao valor passado para a diretiva no componente que a utiliza.
+
+B) É através de binding.modifiers que temos acesso aos modificadores utilizadas pela diretiva. Exemplo, binding.modifiers.NomeDoModificador.
+
+C) O parâmetro el aponta para o elemento do DOM no qual a diretiva foi associada.
+
+Uma diretiva pode suportar zero ou mais argumentos e eles servem para ditar a lógica principal da diretiva que deve ser executada. Já os modificadores podem ser usados pelos argumentos para que ativem ou não determinada lógica.
+```
+
 > ### 	[Lifecycle Hooks](https://br.vuejs.org/v2/api/index.html#Opcoes-Ciclo-de-Vida)
 ``` 
  Um exemplo de hook é a função created

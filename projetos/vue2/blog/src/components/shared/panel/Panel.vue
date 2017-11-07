@@ -4,7 +4,7 @@
 
     <h2 class="panel-title" @dblclick="visivel = !visivel">{{ title }}</h2>
     <transition name="panel-fade">
-        <div class="panel-conteudo" v-show="visivel">
+        <div class="panel-content" v-show="visivel">
             <slot></slot>
         </div>
     </transition>
@@ -57,4 +57,9 @@ export default {
     .panel-fade-enter-active, .panel-fade-leave-active{
         transition: opacity .4s;
     }
+    
+    .panel-content{
+        overflow: hidden;
+    }
+
 </style>
