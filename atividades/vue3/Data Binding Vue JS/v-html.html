@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-html</title>
+</head>
+<body>
+        <!-- Cuidado com os ataque xss -->
+        <!-- Nã recer diretivas em html -->
+        <div id="app">
+            <h1>{{ title }}</h1>
+            <div v-html="descriptio"></div>
+        </div>
+        
+        <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                   title: 'Init Vue.js',
+                   descriptio: ' <strong> Conteúdo do Artigo </strong> '
+                }
+            });
+        </script>
+</body>
+</html>
