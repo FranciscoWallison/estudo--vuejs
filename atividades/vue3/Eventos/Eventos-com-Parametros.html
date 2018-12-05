@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos com Parâmetros</title>
+</head>
+<body>
+
+    <div id="app">
+        <input type="text" @keyup="changeInput">
+        <button @click="changeInputTwo(2)"> Imcremendar 2 </button>
+        <input type="text" @keyup="changeInputTree(2, $event)">
+
+        {{ count }}
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+            methods: {
+                changeInput(event){
+
+                    this.count ++
+                    console.log(event.target.value)
+                    console.log(event.target , 'changeInput')
+
+                },
+                changeInputTwo(value){
+
+                    this.count += value 
+                    console.log('changeInputTwo = ' + this.count  )
+
+                },
+                changeInputTree(value, event) {
+                    value += parseInt(event.target.value)
+                    this.count += value
+
+                    console.log(event, 'changeInputTree')
+                }
+
+            }
+        });
+    </script>
+
+</body>
+</html>
