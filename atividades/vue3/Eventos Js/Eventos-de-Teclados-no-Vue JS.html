@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos de Teclados no Vue JS</title>
+</head>
+<body>
+    <div id="app">
+
+        <!-- Documentação: https://vuejs.org/v2/guide/events.html#Key-Modifiers -->
+
+        <!--Pega o evento do teclado-->
+
+        <input type="text" 
+            @keyup.tab.enter="changeValue"
+            @keyup.up="changeValueTwo"
+            @keyup="getCodeKey">
+
+        {{ valueText }}
+        
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                valueText: ''
+            },
+            methods:{
+
+                changeValue (event) {
+                    // verifica o valor passado pelo input TAB+ENTER
+                    this.valueText = event.target.value
+                },
+                changeValueTwo (event) {
+                    // Ao clicar do btn UP do teclado mostar up popup
+                    alert('changeValueTwo: ' +  event.target.value)
+                },
+                getCodeKey (event) {
+                    // mostra o codigo do telcado
+                    console.log(event.keyCode)
+                }
+
+            }
+        });
+    </script>
+</body>
+</html>

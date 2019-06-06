@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos Teclas Modificadoras no Vue JS
+</title>
+</head>
+<body>
+    <div id="app">
+        <!-- Preciona sobre o nome e click com CTRL
+            
+            SEGURA NO CURSO "clica na tecla" e SOLTA O CURSO
+
+
+            <div @click.ctrl="testeEvent">
+                Clique Aqui!!!
+            </div>
+
+            <div @click.alt="testeEvent">
+                Clique Aqui!!!
+            </div>
+
+            <div @click.shift="testeEvent">
+                Clique Aqui!!!
+            </div>
+
+            <div @click.meta="testeEvent">
+                Clique Aqui!!!
+            </div>
+
+            somente a tecla CTRL
+            <div @click.ctrl.exact="testeEvent">
+                Clique Aqui!!!
+            </div>
+            
+            teclas CTRL + C
+            <div @click.ctrl.63="testeEvent">
+                Clique Aqui!!!
+            </div>
+        -->
+
+        <div @click.ctrl.63="testeEvent">
+            Clique Aqui!!!
+        </div>
+        
+
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                valueText: ''
+            },
+            methods: {
+                testeEvent(){
+                    alert('Teste')
+                }
+            }
+        });
+    </script>
+</body>
+</html>
