@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> (Watchers) Observadores Vue JS </title>
+</head>
+<body>
+    <div id="app">
+        <button @click="count++">Aumentar</button>
+
+        <input type="text" v-model="count" name="">
+
+        {{ count }}
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+               count: 0
+            },
+            watch: {
+                // watch fica escutando as propriedade
+                count: function ( value ) {
+                    // alert(value)
+
+                    var vm = this
+
+                    setTimeout(function() {
+                        vm.count = 0
+                    }, 3000)
+                }
+            }
+           
+        });
+    </script>
+</body>
+</html>

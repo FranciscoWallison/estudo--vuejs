@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Styles Vue JS </title>
+
+    <style type="text/css">
+        .active{background: green;}
+        .no-active{background: red;}
+        .default{color: yellow;}
+    </style>
+
+</head>
+<body>
+    <div id="app">
+        
+        <button @click="isActive = !isActive">Alterar Class</button>
+
+        <div :class="{active : isActive}" >
+            Exemplo Style Vue
+        </div>
+
+        <div :class="isActive ? 'active' : 'no-active'" >
+            Exemplo 2
+        </div>
+
+        <div class="dafault" :class="{active : isActive}" >
+            Exemplo 3
+        </div>
+
+        <div class="dafault" :class="isActive ? 'active' : 'no-active'" >
+            Exemplo 3/1
+        </div>
+
+        <!-- Adicionar um conjubto de class -->
+        <div :class="['dafault', isActive ? 'active' : 'no-active']">
+            Exemplo 3/2
+        </div>
+
+        <!-- Confome os atributos do objeto vai add o nome da class -->
+        <div :class="classObject">
+            Exemplo 4
+        </div>
+
+        <!-- Validar conforme o navegador -->
+        <div :style="{display: ['-webkit-flex', '-moz-flex', 'flex']}">
+            Exemplo 5
+        </div>
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                isActive: true,
+                classObject: {
+                    active: true,
+                    'text-red': true,
+                    'color-white': true
+                }
+            }
+           
+        });
+    </script>
+</body>
+</html>
