@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Renderização Condicional no Vue JS (v-if, v-else-if, v-else) </title>
+</head>
+<body>
+    <div id="app">
+        
+        <div v-if=" number < 12 ">
+            {{ textExemplo }}
+        </div>
+        <div v-else-if=" number == 12 ">
+            É Igual
+        </div>
+        <div v-else>
+            É Diferente
+        </div>
+
+        <div @click="isActiveComputed" v-if="isActive">
+            Ativo
+        </div>
+        <div  @click="isActiveComputed" v-else>
+            Não Ativo
+        </div>
+
+        <hr>
+
+       <button @click="number++">Somar</button>
+       <button @click="number--">Subtrair</button>
+
+       {{number}}
+      
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+              number: 12,
+              textExemplo: 'Texto Databing',
+              isActive: true
+            },
+            methods: {
+                isActiveComputed: function (){
+                    return this.isActive = !this.isActive;
+                }
+            }
+           
+        });
+    </script>
+</body>
+</html>
