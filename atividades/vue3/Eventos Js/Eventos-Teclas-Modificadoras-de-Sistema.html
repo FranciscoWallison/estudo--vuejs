@@ -22,8 +22,8 @@
             <button type="submit">Enviar Formulário</button>
         </form>
 
-        <!-- 'ONCE' Não permite q o formulario continue com o seu evento padrão -->
-        <button @click.once>Clique Me!</button>
+        <!-- 'ONCE' Não permite q o evento seja executato mais de um vez -->
+        <button @click.once="showAlert">Clique Me!</button>
     </div>
     
     <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
