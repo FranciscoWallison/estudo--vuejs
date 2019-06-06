@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Diretiva v-show no Vue JS </title>
+</head>
+<body>
+    <div id="app">
+        <!-- Ele não renderiza V-IF -->
+        <div v-if="isActive">
+            V-IF
+        </div>
+
+        <!-- Ele oculta V-SHOW -->
+        <div v-show="isActive">
+            V-SHOW
+        </div>
+
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {              
+                isActive: false
+              
+            }
+        });
+    </script>
+</body>
+</html>
