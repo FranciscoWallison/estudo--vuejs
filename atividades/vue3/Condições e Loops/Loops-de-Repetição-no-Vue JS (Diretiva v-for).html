@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Loops de Repetição no Vue JS (Diretiva v-for) </title>
+    <style type="text/css">
+        .active{
+            background: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+
+
+        <ul>
+            <li v-for="i in 10">
+                {{ i }}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="product id products">
+                {{ product }}
+            </li>
+        </ul>
+
+        <ul>
+            <li v-for="(task, index) in tasks" :class="{active: task.isActive}">
+                {{ index }} -> {{ task.id }} - {{ task.name }}
+            </li>
+        </ul>
+
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {              
+                products: [
+                    'TV', 'Geladeira', 'Microondas', 'Radio'
+                ],
+                tasks: [
+                    {id: 1, name: 'Lavar Louça', isActive: false},
+                    {id: 2, name: 'Lavar Carro', isActive: true},
+                    {id: 3, name: 'Lavar Moto', isActive: false},
+                    {id: 4, name: 'Lavar Banheiro', isActive: false},
+                ]
+            }
+        });
+    </script>
+</body>
+</html>
