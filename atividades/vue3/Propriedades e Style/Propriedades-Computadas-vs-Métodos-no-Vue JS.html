@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Propriedades Computadas vs Métodos no Vue JS </title>
+</head>
+<body>
+    <div id="app">
+
+        <!--  https://vuejs.org/v2/guide/computed.html -->
+
+        <button @click="count++">Somar</button>
+        <button @click="count--">Subtrair</button>
+
+        <hr>
+
+        {{ count }} | {{ countComputed }} | {{ countMethods() }}
+
+        <!-- 
+            Computed : para mudança de propriedades no component e armazenar em cache a operação evitando redudancia.
+            Recomendadas para fazer o mutator (alteração) de alguma propriedade. 
+
+
+            Methods : bild ou ajax
+         -->
+
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+            computed: {
+                countComputed: function (){
+                    return this.count >= 5 ? "Maior ou igual a 5" : "Menor q 5"
+                }
+            },
+            methods: {
+                countMethods: function (){
+                    return this.count >= 5 ? "Maior ou igual a 5" : "Menor q 5"
+                }
+            }
+        });
+    </script>
+</body>
+</html>
