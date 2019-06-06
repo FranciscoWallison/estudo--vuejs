@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos Teclas Modificadoras de Sistema
+</title>
+</head>
+<body>
+    <div id="app">      
+
+        <a :href="urlLink" @click.prevent="showAlert">{{ textLink }}</a>
+
+        <hr>
+
+        <!-- 'PREVENT' Não permite q o formulario continue com o seu evento padrão -->
+
+        <form action="#" method="POST" @submit.prevent="showAlert">
+            <input type="text" name="" placeholder="Nome:">
+
+            <button type="submit">Enviar Formulário</button>
+        </form>
+
+        <!-- 'ONCE' Não permite q o formulario continue com o seu evento padrão -->
+        <button @click.once>Clique Me!</button>
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                textLink: 'Fº Wallison',
+                urlLink: 'https://github.com/FranciscoWallison'
+            },
+            methods: {
+                showAlert (event) {
+                    // event.preventDefault()
+
+                    alert('Clicou no link')
+                }
+            }
+        });
+    </script>
+</body>
+</html>
