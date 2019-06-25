@@ -32,7 +32,7 @@
 
 				<div class="controls col">
 					<a href="#" class="btn btn-success" @click.prevent="changePlayer">Pular</a>
-					<a href="" class="btn btn-primary">Finalizar</a>
+					<a href="#" class="btn btn-primary" @click.prevent="finishGame">Finalizar</a>
 					<a href="" class="btn btn-danger">Resetar</a>
 				</div>
 
@@ -86,6 +86,26 @@
 
 						if(this.playerSelected == 2)
 							this.playerTow.points += this.cartSelected
+
+						if(this.playerOne.points >= 21 || this.playerTow.points  >= 21 )
+							this.finishGame()
+						
+					},
+					finishGame () {
+						if(this.playerOne.points <= 21 && this.playerOne.points > this.playerTow.points )
+							console.log('Playser 1 Campeão!');
+						else if(this.playerTow.points <= 21 &&this.playerTow.points > this.playerOne.points )
+							console.log('Playser 2 Campeão!');
+						else if (this.playerOne.points > 21)
+							console.log('Playser 2 Campeão!');
+						else if (this.playerTow.points > 21)
+							console.log('Playser 1 Campeão!');
+						else
+							console.log('Empate!');
+
+
+
+
 						
 					}
 				}
