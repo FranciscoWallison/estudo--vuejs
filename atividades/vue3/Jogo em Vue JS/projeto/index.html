@@ -21,11 +21,13 @@
 				<div :class="['col-6', playerSelected == 1 ? 'active' : '']">
 					<img src="assets/player1.png" alt="Jogador 1">
 					<p>Player 1</p>
+					<p> <strong> Pontos: </strong> {{ playerOne.points }} </p>
 				</div>
 
 				<div :class="['col-6', playerSelected == 2 ? 'active' : '']">
 					<img src="assets/player2.png" alt="Jogador 2">
 					<p>Player 2</p>
+					<p> <strong> Pontos: </strong> {{ playerTow.points }} </p>
 				</div>
 
 				<div class="controls col">
@@ -40,11 +42,15 @@
 
 			<div class="row">
 				<div class="col-6">
-					<img src="assets/baralho-cartas.png" alt="Baralho" class="carts">
+					<a href="#" @click.prevent="selectedCart">
+						<img src="assets/baralho-cartas.png" alt="Baralho" class="carts">					
+					</a>
 				</div>
 
 				<div class="col-6">
-					<img src="assets/carts/1.png" alt="Baralho" class="cart">
+					<div v-if="cartSelected != ''">
+						<img :src="'assets/carts/' + cartSelected +'.png'" alt="Baralho" class="cart">						
+					</div>
 				</div>
 
 			</div>
@@ -59,11 +65,28 @@
 			new Vue({
 				el: '#app',
 				data: {
-					playerSelected: 1
+					playerSelected: 1,
+					playerOne: {
+						points: 0
+					},
+					playerTow: {
+						points: 0
+					},
+					cartSelected: ''
 				},
 				methods: {
 					changePlayer () {
 						this.playerSelected = this.playerSelected == 1 ? 2 : 1
+					},
+					selectedCart(){
+						this.cartSelected = Math.floor( (Math.random() * 13) +1 )
+
+						if(this.playerSelected == 1)
+							this.playerOne.points += this.cartSelected
+
+						if(this.playerSelected == 2)
+							this.playerTow.points += this.cartSelected
+						
 					}
 				}
 			})
