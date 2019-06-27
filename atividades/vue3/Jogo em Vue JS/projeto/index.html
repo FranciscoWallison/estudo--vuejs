@@ -33,7 +33,7 @@
 				<div class="controls col">
 					<a href="#" class="btn btn-success" @click.prevent="changePlayer">Pular</a>
 					<a href="#" class="btn btn-primary" @click.prevent="finishGame">Finalizar</a>
-					<a href="" class="btn btn-danger">Resetar</a>
+					<a href="#" class="btn btn-danger" @click.prevent="resetGame">Resetar</a>
 				</div>
 
 			</div>
@@ -102,12 +102,21 @@
 							console.log('Playser 1 Campeão!');
 						else
 							console.log('Empate!');
-
-
-
-
 						
+						let vm = this
+
+						setTimeout( function(){
+							vm.resetGame()
+						}, 3000 )				
+					},
+					resetGame(){
+						this.playerOne.points = 0;
+						this.playerTow.points = 0;
+
+						this.cartSelected = '';
+						this.playerSelected= 1; 
 					}
+
 				}
 			})
 		</script>
