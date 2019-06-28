@@ -20,13 +20,19 @@
 			<div class="row">
 				<div :class="['col-6', playerSelected == 1 ? 'active' : '']">
 					<img src="assets/player1.png" alt="Jogador 1">
-					<p>Player 1</p>
+					<p>
+						Player 1
+						<samp class="badge badge-default"> {{ numberHistoricPlayerOne }} </samp>
+					</p>
 					<p> <strong> Pontos: </strong> {{ playerOne.points }} </p>
 				</div>
 
 				<div :class="['col-6', playerSelected == 2 ? 'active' : '']">
 					<img src="assets/player2.png" alt="Jogador 2">
-					<p>Player 2</p>
+					<p>
+						Player 2
+						<samp class="badge badge-default"> {{ numberHistoricPlayerTow }} </samp>
+					</p>
 					<p> <strong> Pontos: </strong> {{ playerTow.points }} </p>
 				</div>
 
@@ -67,25 +73,33 @@
 				data: {
 					playerSelected: 1,
 					playerOne: {
-						points: 0
+						points: 0,
+						historic: []
 					},
 					playerTow: {
-						points: 0
+						points: 0,
+						historic: []
 					},
 					cartSelected: ''
 				},
 				methods: {
 					changePlayer () {
 						this.playerSelected = this.playerSelected == 1 ? 2 : 1
+
+						this.cartSelected = ''
 					},
 					selectedCart(){
 						this.cartSelected = Math.floor( (Math.random() * 13) +1 )
 
-						if(this.playerSelected == 1)
+						if(this.playerSelected == 1){
 							this.playerOne.points += this.cartSelected
+							this.playerOne.historic.push(this.cartSelected)
+						}
 
-						if(this.playerSelected == 2)
+						if(this.playerSelected == 2){
 							this.playerTow.points += this.cartSelected
+							this.playerTow.historic.push(this.cartSelected)
+						}
 
 						if(this.playerOne.points >= 21 || this.playerTow.points  >= 21 )
 							this.finishGame()
@@ -102,7 +116,7 @@
 							console.log('Playser 1 Campeão!');
 						else
 							console.log('Empate!');
-						
+
 						let vm = this
 
 						setTimeout( function(){
@@ -116,7 +130,15 @@
 						this.cartSelected = '';
 						this.playerSelected= 1; 
 					}
-
+				},
+				computed: {
+					numberHistoricPlayerOne(){
+						return this.playerOne.historic.length
+					},
+					numberHistoricPlayerTow(){
+						return this.playerTow.historic.length
+					} 
+					
 				}
 			})
 		</script>
