@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 02 - Components no Vue JS </title>
+</head>
+<body>
+    <div id="app">
+    	<my-component></my-component>
+    	<child-component></child-component> 
+    	<child-component></child-component> 
+    </div>
+    
+    <!-- versão de desenvolvimento, inclui aviso úteis no console  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+
+    	Vue.component('my-component', {
+    		template: 
+    		`<div> 
+    				<p>My Component </p>
+    				<child-component></child-component> 
+    		</div>`
+    	})
+
+    	Vue.component('child-component', {
+    		template: '<p> Component filho</p>'
+    	});
+
+
+        new Vue({
+            el: '#app',
+            data: {            
+            },
+            methods: {               
+            }
+           
+        });
+    </script>
+</body>
+</html>
