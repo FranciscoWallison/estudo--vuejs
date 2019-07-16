@@ -3,11 +3,13 @@
     <!-- <img src="./assets/logo.png"> -->
     <h1>{{ msg }}</h1>
     <teste-component></teste-component>
+    <form-component></form-component>
   </div>
 </template>
 
 <script>
 import TesteComponent from './components/TesteComponent'
+import FormComponent from './components/FormComponent'
 
 export default {
   name: 'app',
@@ -17,7 +19,8 @@ export default {
     }
   },
   components: {
-    TesteComponent
+    TesteComponent,
+    FormComponent
   }
 }
 </script>
