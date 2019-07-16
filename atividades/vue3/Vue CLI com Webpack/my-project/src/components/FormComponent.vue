@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="comp">
         #form component
     </div>
 </template>
@@ -11,5 +11,5 @@ export default {
 </script>
 
 <style scoped>
-
+.comp{ border: 1px solid yellow; margin: 5px; padding: 5px; }
 </style>

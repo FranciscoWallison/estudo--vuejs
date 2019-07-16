@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="comp">
         <p>Teste de Component</p>
         <span>{{ msg }}</span>
         <form-component></form-component>
@@ -23,6 +23,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
 p{color: red;}
+.comp{ border: 1px solid green; margin: 5px; padding: 5px; }
 </style>
