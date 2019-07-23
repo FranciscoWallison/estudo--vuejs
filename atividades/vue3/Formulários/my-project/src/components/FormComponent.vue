@@ -1,8 +1,13 @@
 <template>
     <div>
-        <form>
-            <input type="text" placeholder="Nome" v-model="userData.name">
-            {{ userData.name }}
+        <form @submit.prevent="saveDate">
+
+            <div :class="errors.has('name') ? 'is-danger' : 'is-sucess'" >
+                <input name="name" v-validate="'required|min:3|max:10'" type="text" placeholder="Nome" v-model="userData.name">            
+                <br>
+                <i v-show="errors.has('name')" class="fa fa-warning"></i> 
+                <span v-show="errors.has('name')" class="help is-danger">{{ errors.first('name') }}</span>
+            </div>
             <hr>
             <div :class="errors.has('email') ? 'is-danger' : 'is-sucess'" >
                 <input type="text" v-validate="'required|email'" placeholder="E-mail" name="email" v-model="userData.email">
@@ -36,6 +41,10 @@
             <hr>
             <button type="submit">Enviar</button>
         </form>
+        <div v-show="isSubmit">
+            {{ userData }}
+        </div>
+
     </div>
 </template>
 
@@ -51,8 +60,20 @@ export default {
                 state: ''
             },
             terms: false,
-            description: ''
+            description: '',
+            isSubmit: false
             
+        }
+    },
+    methods: {
+        saveDate (){
+            
+            this.$validator.validateAll().then((result) => {
+                if (result) {
+                    this.isSubmit = true;
+                    return;
+                }
+            });
         }
     }
 }
