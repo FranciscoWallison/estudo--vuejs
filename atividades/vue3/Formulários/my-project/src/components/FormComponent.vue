@@ -2,10 +2,17 @@
     <div>
         <form>
             <input type="text" placeholder="Nome" v-model="userData.name">
+            {{ userData.name }}
             <hr>
-            <input type="text" placeholder="E-mail" v-model="userData.email">
+            <div :class="errors.has('email') ? 'is-danger' : 'is-sucess'" >
+                <input type="text" v-validate="'required|email'" placeholder="E-mail" name="email" v-model="userData.email">
+                <br>
+                <i v-show="errors.has('email')" class="fa fa-warning"></i> 
+                <span v-show="errors.has('email')" class="help is-danger">{{ errors.first('email') }}</span>
+            </div>
             <hr>
             <input type="text" placeholder="Idade" v-model.number="userData.age">
+            {{ userData.age }}
             <hr>
             <input type="radio" name="sex" value="M" v-model="userData.sex"> Masculino |
             <input type="radio" name="sex" value="F" v-model="userData.sex"> Feminino
@@ -52,5 +59,13 @@ export default {
 </script>
 
 <style scoped>
-
+.is-danger input{
+    border: 1px solid red;
+}
+.is-danger p{
+    color: red;
+}
+.is-sucess input{
+    border: 1px solid green;
+}
 </style>
