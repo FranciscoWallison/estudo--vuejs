@@ -2,11 +2,14 @@
   <div id="app">    
     <h1>{{ msg }}</h1>
     <tasks-component :items="['Levar', 'Passar', 'Cozinhar']" :title="'Lista de tarefas'"></tasks-component>
+    <list-items-component :title="'Listagem de alguma coisa'" :items="['value 1', 'value 2', 'value 3']"></list-items-component>
+  
   </div>
 </template>
 
 <script>
-import TasksComponent from './componen/TasksComponent'
+import TasksComponent from './components/TasksComponent'
+import ListItemsComponent from './components/ListItemsComponent'
 
 export default {
   name: 'app',
@@ -16,7 +19,8 @@ export default {
     }    
   },
   components: {
-    TasksComponent
+    TasksComponent,
+    ListItemsComponent
   }
 
 }
