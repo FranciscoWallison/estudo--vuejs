@@ -1,7 +1,7 @@
 <template>
   <div id="app">    
     <h1>{{ msg }}</h1>
-    <tasks-component :items="['Levar', 'Passar', 'Cozinhar']" :title="'Lista de tarefas'"></tasks-component>
+    <tasks-component @calledParent="answerSon" :items="['Levar', 'Passar', 'Cozinhar']" :title="'Lista de tarefas'"></tasks-component>
     <list-items-component :title="'Listagem de alguma coisa'" :items="['value 1', 'value 2', 'value 3']"></list-items-component>
   
   </div>
@@ -21,7 +21,12 @@ export default {
   components: {
     TasksComponent,
     ListItemsComponent
-  }
+  },
+  methods: {
+    answerSon () {
+      alert("Resposta do filho")
+    }
+  },
 
 }
 </script>
