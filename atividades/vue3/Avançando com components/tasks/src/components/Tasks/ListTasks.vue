@@ -2,6 +2,11 @@
     <div>
         <h2>{{ title }}</h2>
 
+        <form class="form form-inline" @submit.prevent="save">
+            <input type="text" placeholder="Nome Tarefa" class="form-control" v-model="task.name">
+            <button type="submit" class="btn btn-primary"> Enviar </button>
+        </form>
+
         <table class="table table-dark">
             <thead>
                 <tr>
@@ -29,14 +34,30 @@ export default {
     data() {
         return {
             title: 'Lista de Tarefas',
-            tasks: [
-                {id: 12, name: "Lavar Roupa"}
-            ]
+            tasks: [],
+            task: {
+                id: '',
+                name: '',
+            }
+        }
+    },
+    methods: {
+        save(){
+            this.task.id = this.tasks.length + 1            
+
+            this.tasks.push(this.task)
+
+           this.task = {
+                id: '',
+                name: '',
+            }
         }
     },
 }
 </script>
 
 <style scoped>
-
+form{
+    margin: 20px 0;
+}
 </style>
