@@ -29,8 +29,8 @@
                     <td>{{ task.id }}</td>
                     <td>{{ task.name }}</td>
                     <td>
-                        <a href="#" @click.prevent="edit(index)" class="btn btn-info">Editar</a>
-                        <a href="#" @click.prevent="deleteTesk(index)" class="btn btn-danger">Deletar</a>
+                        <a href="#" @click.prevent="edit(task.id)" class="btn btn-info">Editar</a>
+                        <a href="#" @click.prevent="deleteTesk(task.id)" class="btn btn-danger">Deletar</a>
                     </td>
                 </tr>
             </tbody>
@@ -69,27 +69,34 @@ export default {
 
             this.clearForm()
         },
-        edit (index) {
-            this.task = this.tasks[index]
+        edit (id) {
+            this.updateIdex = this.findIndexItem(id);
 
-            this.updateIdex = index
+            this.task = this.tasks[this.updateIdex]
+
             this.updating = true
         },
         update(){
             this.tasks[this.updateIdex] = this.task
 
-            this.updateIdex = ''
+            //this.updateIdex = ''
             this.updating = false
             
             this.clearForm()
         },
-        deleteTesk (index) {
-            this.tasks.splice(index, 1)
+        deleteTesk (id) {
+            this.tasks.splice(this.findIndexItem(id), 1)
         },
         clearForm () {
             this.task = {
                 id: '',
                 name: '',
+            }
+        },
+        findIndexItem (id) {
+            for (let index = 0; index < this.tasks.length -1; index++){
+                if(this.tasks[index].id == id)
+                    return index
             }
         }
     },
