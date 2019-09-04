@@ -2,10 +2,19 @@
     <div>
         <h2>{{ title }}</h2>
 
-        <form class="form form-inline" @submit.prevent="onSubmit">
-            <input type="text" placeholder="Nome Tarefa" class="form-control" v-model="task.name">
-            <button type="submit" class="btn btn-primary"> Enviar </button>
-        </form>
+        <div class="row">
+            <div class="col">
+                <form class="form form-inline">
+                    <input type="text" class="form-control"  placeholder="Filtrar" v-model="filter" name="" id="">
+                </form>
+            </div>
+            <div class="col">
+                <form class="form form-inline" @submit.prevent="onSubmit">
+                    <input type="text" placeholder="Nome Tarefa" class="form-control" v-model="task.name">
+                    <button type="submit" class="btn btn-primary"> Enviar </button>
+                </form>
+            </div>
+        </div>
 
         <table class="table table-dark">
             <thead>
@@ -16,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(task, index) in tasks" :key="index">
+                <tr v-for="(task, index) in filteredItems" :key="index">
                     <td>{{ task.id }}</td>
                     <td>{{ task.name }}</td>
                     <td>
@@ -40,7 +49,8 @@ export default {
                 name: '',
             },
             updating: false,
-            updateIdex: ''
+            updateIdex: '',
+            filter: ''
         }
     },
     methods: {
@@ -81,6 +91,23 @@ export default {
                 id: '',
                 name: '',
             }
+        }
+    },
+    computed: {
+        filteredItems () {
+
+            if(this.filter === '')
+                return this.tasks
+            
+            let vm = this
+            /*
+            return this.tasks.filter(task => {
+                return task.name.toLowerCase().indexOf(vm.filter.toLowerCase()) > -1
+            })
+            */
+           return this.tasks.filter(task => {
+                return task['name'].toLowerCase().includes(vm.filter.toLowerCase())
+            })
         }
     },
 }
