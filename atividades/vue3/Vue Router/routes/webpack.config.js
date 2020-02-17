@@ -48,7 +48,10 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     noInfo: true,
-    overlay: true
+    overlay: true,
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 8091
   },
   performance: {
     hints: false
