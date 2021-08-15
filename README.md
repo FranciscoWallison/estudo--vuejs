@@ -1,5 +1,5 @@
 # Estudos--Vue.js
-Vue.js
+Projeto com objetivo de praticar com Vue.js
 
 Projetos com Vue.Js
 
