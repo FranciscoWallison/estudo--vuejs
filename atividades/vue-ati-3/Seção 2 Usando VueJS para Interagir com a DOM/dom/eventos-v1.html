@@ -2,7 +2,7 @@
 
 <div id="app">
     <p>{{ contador }}</p>
-    <button v-on:click="somar">Somar 1</button>
+    <button v-on:click="somar(5, $event)">Somar 1</button>
     <p v-on:mousemove="atualizarxy">Mouse: {{ x }} e {{ y }}</p>
 </div>
 
@@ -15,8 +15,8 @@
             y: 0
         },
         methods: {
-            somar() {
-                this.contador++
+            somar(pass, event) {
+                this.contador += pass;
             },
             atualizarxy(event){
                 this.x = event.clientX;
