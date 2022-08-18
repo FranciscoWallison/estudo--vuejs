@@ -1,0 +1,25 @@
+<script src="https://unpkg.com/vue@2"></script>
+
+<div id="app">
+    <p>{{ contador }}</p>
+    <button @click="somar">Somar 1</button> | <button @click="diminuir">Subitrai 1</button>
+    <hr>
+    <input type="text" :value="contador">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0
+        },
+        methods: {
+            somar(){
+                this.contador++
+            },
+            diminuir(){
+                this.contador--
+            }
+        }
+    })
+</script>
