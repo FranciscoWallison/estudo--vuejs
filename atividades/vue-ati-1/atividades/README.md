@@ -55,7 +55,8 @@ https://github.com/freearhey/vue2-filters
 ```
 
 #### Manipulando estruturas básicas - Atividade
-```
+
+_________________________________________________________________________
 Manipulando estruturas básicas
 
 Nesta primeira fase do módulo de Vue.js, você deverá implementar a listagem de contas a pagar, bem como
@@ -77,5 +78,4 @@ Dica:
  Para remover algo de um array você pode usar o método splice()
  Para o filtro na cor cinza, você pode receber um valor "false" para demonstrar que não existe nenhuma conta cadastrada.
 Boa sorte
-```
 
