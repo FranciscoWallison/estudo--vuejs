@@ -1,7 +1,7 @@
 ##Ferramentas
 ```
-	lite-server
-	Browser-sync
+lite-server
+Browser-sync
 ```
 
 #### Visualiza
@@ -10,7 +10,7 @@ vim index.html
 #### Cria
 touch bs-config.json
 ```
-	[ESC] :wq
+[ESC] :wq
 ```
 
 ```
