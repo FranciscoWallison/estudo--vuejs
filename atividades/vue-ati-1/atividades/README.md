@@ -13,7 +13,6 @@ print->  110
 {{ "vue" + ".js"}} 
 
 print->  vue.js
-
 ```
 
 #### Ternario
