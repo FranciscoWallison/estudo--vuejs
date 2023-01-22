@@ -1,7 +1,7 @@
 # Estudos--Vue.js
 Projeto com objetivo de praticar com Vue.js
 
-Esse repositório tem como objetivo analisar o meu desempenho com vue.js
+Esse repositório tem como objetivo praticar vue.js
 
 ### Projetos com Vue.Js
 
